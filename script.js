@@ -78,12 +78,32 @@
 //rock beats scissors
 //scissor beats paper
 
-//Same Game - different explaination, lets see if this one goes smoother?
+//Same Game - different explanation, lets see if this one goes smoother?
 
+//create function to contain all the logic of the game
 function game() {
-  let playerScore;
-  let computerScore;
-  let moves;
+    //declare 3 variables for scores and moves
+  let playerScore = 0;
+  let computerScore = 0;
+  let movesCompleted = 0;
 
-  function playGame() {}
+  //create function and inside use DOM manipulation to get hold of all three buttons 
+    function playGame() {
+        let playerChoice = document.getElementById(selectionButtons);
+        //create an array playerOptions that holds all three buttons as elements
+        ///create an array computerOptions 
+        const playerOptions = ["ROCK", "PAPER", "SCISSOR"];
+        const computerOptions = ["ROCK", "PAPER", "SCISSOR"]
+    
 }
+
+
+//if player chooses rock, and computer chooses rock it's a tie, if computer chooses scissor player wins, if computer chooses paper, computer wins
+
+f
+
+
+
+
+
+//if player chooses
