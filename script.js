@@ -1,109 +1,50 @@
-// //create a function that randomly returns rock, paper, scissors
-// function getComputerChoice() {
-//   const chooseOne = ["ROCK", "PAPER", "SCISSOR"];
-//   const compChoice = Math.floor(Math.random() * chooseOne.length);
-//   return chooseOne[compChoice];
-// }
+//Variables
+let playerScore = 0;
+let computerScore = 0;
 
-// getComputerChoice();
-
-// //write function that plays a single round of Rock Paper Scissor, function takes two parameters, then returns a string that declares the winner
-
-// function playRound(playerSelection, computerSelection) {
-//     let playerSelection = "ROCK";
-//     const computerSelection = getComputerChoice();
-
-//   if (playerSelection === computerSelection) {
-//     roundWinner = "Tie";
-//     return "Its a tie, try again!";
-//   }
-
-//   if (
-//     (playerSelection === "ROCK" || playerSelection === "rock" || playerSelection === "Rock")
-//     && (computerSelection === "SCISSOR")) {
-//     roundWinner = "Player";
-//     return "ROCK beats SCISSOR, You win!";
-//   }
-//   if (
-//     playerSelection === "SCISSOR" ||
-//     "Scissor" ||
-//     "scissor" && computerSelection === "PAPER")
-//    {
-//     roundWinner = "Player";
-//     return "SCISSOR beats PAPER, You win!";
-//   }
-
-//   if (
-//     playerSelection === "PAPER" ||
-//     "paper" ||
-//     ("Paper" && computerSelection === "ROCK")
-//   ) {
-//     //playerScore++;
-//     roundWinner = "Player";
-//     return "PAPER beats ROCK, You win!";
-//   }
-
-//   if (
-//     (computerSelection === "ROCK" && playerSelection === "SCISSOR" ||
-//     "scissor" ||
-//     "Scissor"
-//   ) {
-//     //computerScore++;
-//     roundWinner = "Computer";
-//     return "ROCK beats SCISSOR, You lose!";
-//   }
-
-//   if (
-//     computerSelection === "SCISSOR" && playerSelection === "PAPER" ||
-//     "Paper" ||
-//     "paper"
-//   ) {
-//     roundWinner = "Computer";
-//     return "SCISSOR beats PAPER, You lose!";
-//   }
-
-//   if (
-//     computerSelection === "PAPER" && playerSelection === "ROCK" ||
-//     "Rock" ||
-//     "rock"
-//   ) {
-//     //    computerScore++;
-//     roundWinner = "Computer";
-//     return "PAPER beats ROCK, You lose!";
-//   }
-
-// playRound();
-
-//paper beats rock
-//rock beats scissors
-//scissor beats paper
-
-//Same Game - different explanation, lets see if this one goes smoother?
-
-//create function to contain all the logic of the game
-function game() {
-    //declare 3 variables for scores and moves
-  let playerScore = 0;
-  let computerScore = 0;
-  let movesCompleted = 0;
-
-  //create function and inside use DOM manipulation to get hold of all three buttons 
-    function playGame() {
-        let playerChoice = document.getElementById(selectionButtons);
-        //create an array playerOptions that holds all three buttons as elements
-        ///create an array computerOptions 
-        const playerOptions = ["ROCK", "PAPER", "SCISSOR"];
-        const computerOptions = ["ROCK", "PAPER", "SCISSOR"]
-    
+//create function to randomly return rock, paper, or scissors
+function getComputerChoice() {
+  const options = ["ROCK", "PAPER", "SCISSORS"];
+  const compRandNum = Math.floor(Math.random() * options.length);
+  const computerChoice = options[compRandNum];
+  console.log(computerChoice);
+  return computerChoice;
 }
 
+//Write function that plays single round of RPS, takes two parameters(playerSelection and computerSelection), return a string that declares the winner of the round ex: "You Lose! Paper beats Rock"
 
-//if player chooses rock, and computer chooses rock it's a tie, if computer chooses scissor player wins, if computer chooses paper, computer wins
+//make your function playerSelection case-insensitive
+//return the results of this function call, not console.log
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    return "It's a tie";
+  } else if (playerChoice == "ROCK" && computerChoice == "SCISSORS") {
+    let result = "You Win! Rock beats Scissors";
+    return result;
+  } else if (playerChoice == "PAPER" && computerChoice == "ROCK") {
+    let result = "You Win! Paper beats Rock";
+    return result;
+  } else if (playerChoice == "SCISSORS" && computerChoice == "PAPER") {
+    let result = "You win! Scissors beat Paper";
+    return result;
+  } else {
+    let result = "You Lose!";
+    return result;
+  }
+}
+const playerChoice = "ROCK";
+const computerChoice = getComputerChoice();
+console.log(playerChoice);
+console.log(playRound(playerChoice, computerChoice));
 
-f
+//playRound();
 
+//write a new function called game(), call the playRound function inside this one to play a five round game that keeps score and reports a winner or loser at the end.
+//use a loop to play the five rounds: ex for(let i = 0; i < 5; i++) {your code here}
 
+//at this point you should be using console.log() to display the result of each round and the winner at the end.
 
+//use prompt() to get input from the user.
+//playerChoice = prompt("Choose: Rock, Paper, Scissor");
 
-
-//if player chooses
+// I think i want to use event listeners and buttons rather than using a prompt. this means I will have more to code but it will look much better and be more functional I think...if I can figure it out.

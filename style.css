@@ -1,5 +1,12 @@
-h1 {
+h1, body {
     text-align: center;
-    padding-left: auto ;
-    padding-right: auto;
+    justify-content: center;
+    background-color: #734f96;
+    color: white;
+}
+
+.rpsButtons {
+    background-color: #d8b2d1;
+    padding: 20px;
+    margin: 20px;
 }
