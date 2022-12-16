@@ -3,16 +3,23 @@ h1, body {
     justify-content: center;
     background-color: #734f96;
     color: white;
+    font-size: 50px;
 }
 
 .rpsButton {
     background-color: #d8b2d1;
+    font-size: 40px;
     padding: 20px;
     margin: 20px;
 }
 
 #endGameButton {
     background-color: #d8b2d1;
+    font-size: 30px;
     padding: 20px;
     margin: 20px;
+}
+
+.resultContainer {
+    font-size: 25px;
 }
