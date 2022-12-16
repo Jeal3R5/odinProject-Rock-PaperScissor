@@ -66,9 +66,23 @@ function playGame() {
   rpsButtons.forEach((rpsButton) => {
     rpsButton.onclick = () => onClickRPS(rpsButton.value);
   });
+
+  const endGameButton = document.getElementById("endGameButton");
+  endGameButton.onclick = () => endGame(totalScore);
 }
 
 //clears all the text on the DOM
-//function endGame() {}
+function endGame(totalScore) {
+  totalScore["playerScore"] = 0;
+  totalScore["computerScore"] = 0;
+
+  const resultDiv = document.getElementById("result");
+  const handsDiv = document.getElementById("hands");
+  const playerScoreDiv = document.getElementById("player-score");
+
+  resultDiv.innerText = "";
+  handsDiv.innerText = "";
+  playerScoreDiv.innerText = "";
+}
 
 playGame();
