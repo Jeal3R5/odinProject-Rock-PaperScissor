@@ -38,7 +38,8 @@ PLAYER WINS:
 ![Player Wins](https://imgur.com/sbgtrlv.png)
 
 
-Future Enhancements: 
+**Future Enhancements:**
 * maybe add CSS framework
 * show computer score
 * maybe ask for user to put in name and use that instead of generic player
+* game live
