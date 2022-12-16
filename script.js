@@ -1,50 +1,74 @@
-//Variables
-let playerScore = 0;
-let computerScore = 0;
+const totalScore = { computerScore: 0, playerScore: 0 };
 
-//create function to randomly return rock, paper, or scissors
+//randomized computer choice
 function getComputerChoice() {
-  const options = ["ROCK", "PAPER", "SCISSORS"];
-  const compRandNum = Math.floor(Math.random() * options.length);
-  const computerChoice = options[compRandNum];
-  console.log(computerChoice);
-  return computerChoice;
+  const rpsChoice = ["Rock", "Paper", "Scissors"];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return rpsChoice[randomNumber];
 }
 
-//Write function that plays single round of RPS, takes two parameters(playerSelection and computerSelection), return a string that declares the winner of the round ex: "You Lose! Paper beats Rock"
-
-//make your function playerSelection case-insensitive
-//return the results of this function call, not console.log
-function playRound(playerChoice, computerChoice) {
+//getResult compares playerChoice and computerChoice and returns the score accordingly
+function getResult(playerChoice, computerChoice) {
+  let score;
+  //All situations where human draws, set "score" to 0
   if (playerChoice === computerChoice) {
-    return "It's a tie";
-  } else if (playerChoice == "ROCK" && computerChoice == "SCISSORS") {
-    let result = "You Win! Rock beats Scissors";
-    return result;
-  } else if (playerChoice == "PAPER" && computerChoice == "ROCK") {
-    let result = "You Win! Paper beats Rock";
-    return result;
-  } else if (playerChoice == "SCISSORS" && computerChoice == "PAPER") {
-    let result = "You win! Scissors beat Paper";
-    return result;
+    score = 0;
+    //All situations where human wins, set 'score' to 1
+  } else if (playerChoice == "Rock" && computerChoice == "Scissors") {
+    score = 1;
+  } else if (playerChoice == "Paper" && computerChoice == "Rock") {
+    score = 1;
+  } else if (playerChoice == "Scissors" && computerChoice == "Paper") {
+    score = 1;
+    //All situations where human loses, set 'score' to -1
   } else {
-    let result = "You Lose!";
-    return result;
+    score = -1;
   }
+  return score;
 }
-const playerChoice = "ROCK";
-const computerChoice = getComputerChoice();
-console.log(playerChoice);
-console.log(playRound(playerChoice, computerChoice));
 
-//playRound();
+//update DOM to You Win or You lose or It's a draw based on score also show player choice vs computer choice
+function showResult(score, playerChoice, computerChoice) {
+  const resultDiv = document.getElementById("result");
+  const handsDiv = document.getElementById("hands");
+  const playerScoreDiv = document.getElementById("player-score");
 
-//write a new function called game(), call the playRound function inside this one to play a five round game that keeps score and reports a winner or loser at the end.
-//use a loop to play the five rounds: ex for(let i = 0; i < 5; i++) {your code here}
+  if (score == -1) {
+    resultDiv.innerText = "You Lose!";
+  } else if (score == 0) {
+    resultDiv.innerText = "It's a draw!";
+  } else {
+    resultDiv.innerText = "You Won!";
+  }
 
-//at this point you should be using console.log() to display the result of each round and the winner at the end.
+  handsDiv.innerText = `🧑 chooses ${playerChoice}  🤖 chooses ${computerChoice}`;
 
-//use prompt() to get input from the user.
-//playerChoice = prompt("Choose: Rock, Paper, Scissor");
+  playerScoreDiv.innerText = `Player Score: ${totalScore["playerScore"]}`;
+}
 
-// I think i want to use event listeners and buttons rather than using a prompt. this means I will have more to code but it will look much better and be more functional I think...if I can figure it out.
+//Calculate who won and show it on screen
+function onClickRPS(playerChoice) {
+  console.log({ playerChoice });
+  const computerChoice = getComputerChoice();
+  console.log({ computerChoice });
+  const score = getResult(playerChoice, computerChoice);
+  totalScore["playerScore"] += score;
+  console.log({ score });
+  console.log({ totalScore });
+  showResult(score, playerChoice, computerChoice);
+}
+
+//Make the buttons listen for a click and do something with it
+function playGame() {
+  const rpsButtons = document.querySelectorAll(".rpsButton");
+  console.log(rpsButtons);
+
+  rpsButtons.forEach((rpsButton) => {
+    rpsButton.onclick = () => onClickRPS(rpsButton.value);
+  });
+}
+
+//clears all the text on the DOM
+//function endGame() {}
+
+playGame();

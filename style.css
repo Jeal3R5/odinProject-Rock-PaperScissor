@@ -5,7 +5,13 @@ h1, body {
     color: white;
 }
 
-.rpsButtons {
+.rpsButton {
+    background-color: #d8b2d1;
+    padding: 20px;
+    margin: 20px;
+}
+
+#endGameButton {
     background-color: #d8b2d1;
     padding: 20px;
     margin: 20px;

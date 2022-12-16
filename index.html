@@ -5,27 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css"> 
-    <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
     <h2>🧑  vs  🤖</h2>
-
-    <div id="selectionButtons">
-        <button type="text" class="rpsButtons" id="rock">ROCK</button>
-        <button type="text" class="rpsButtons" id="paper">PAPER</button>
-        <button type="text" class="rpsButtons" id="scissors">SCISSORS</button>
+    <div class="wrapper">
+        <div class="buttons">
+            <button class="rpsButton" value="Rock">👊</button>
+            <button class="rpsButton" value="Paper">🤚</button>
+            <button class="rpsButton" value="Scissors">✌️</button>
+        </div>
+        <div class="resultContainer">
+            <div id="player-score"></div>
+            <div id="computer-score"></div>
+            <div id="hands"></div>
+            <div id="result"></div>
+            <button id="endGameButton">🛑</button>
+        </div>
     </div>
-
-    <div id="resultsDisplay">
-        <div class="hands"></div> 
-        <div class="result"></div>
-        <div class="player-score"></div>
-        <div class="computer-score"></div>
-    </div>
-    <div class="quitGame">
-        <button type="text" class="rpsButtons" id="endGameButton">I Quit!</button>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+<!-- 
+    <div id="selectionButtons">
+        <button type="text" class="rpsButton" id="rock" value="rock">ROCK</button>
+        <button type="text" class="rpsButton" id="paper" value="paper">PAPER</button>
+        <button type="text" class="rpsButton" id="scissors" value="SCISSORS">SCISSORS</button>
+    </div>
+
+    <div id="resultsContainer">
+        <div id="hands"></div> 
+        <div id="result"></div>
+        <div id="player-score"></div>
+        <div id="computer-score"></div>
+    </div>
+    <div class="quitGame">
+        <button type="text" id="endGameButton" value="end-game">I Quit!</button>
+    </div> -->
